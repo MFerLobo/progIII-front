@@ -1,0 +1,255 @@
+
+/* CONTENEDOR DE FILTROS */
+
+.filtersSection {
+  padding: 25px;
+  margin-bottom: 40px;
+
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+}
+
+/* BOTÓN DESPLEGABLE */
+
+.filtersToggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0;
+  background: transparent;
+  border: none;
+
+  color: #f8fafc;
+  cursor: pointer;
+}
+
+.toggleTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.toggleTitle svg {
+  color: #00d9ff;
+}
+
+.chevron,
+.chevronOpen {
+  color: #00d9ff;
+  transition: transform 0.25s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.filtersToggle:hover {
+  color: #00d9ff;
+}
+
+.filtersToggle:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+/* PANEL DESPLEGABLE */
+
+.filtersPanel {
+  margin-top: 24px;
+}
+
+.filtersPanel[hidden] {
+  display: none;
+}
+
+.filtersForm {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* BUSCADOR */
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 13px 15px;
+
+  color: #94a3b8;
+}
+
+.searchBox:focus-within {
+  border-color: #00b8ff;
+}
+
+.searchBox input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f8fafc;
+  font-size: 14px;
+}
+
+.searchBox input::placeholder {
+  color: #64748b;
+}
+
+/* GRILLA DE FILTROS */
+
+.filtersGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+
+.filterGroup label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.filterGroup input,
+.filterGroup select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 7px;
+
+  color: #f8fafc;
+  font-size: 13px;
+  outline: none;
+}
+
+.filterGroup input:focus,
+.filterGroup select:focus {
+  border-color: #00b8ff;
+}
+
+.filterGroup input::placeholder {
+  color: #64748b;
+}
+
+/* STOCK Y ACCIONES */
+
+.filtersBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 13px;
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.checkboxLabel input {
+  width: 16px;
+  height: 16px;
+  accent-color: #00b8ff;
+  cursor: pointer;
+}
+
+.filterActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* BOTONES */
+
+.clearButton,
+.applyButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 12px 20px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: background 0.2s;
+}
+
+.clearButton {
+  background: transparent;
+  border: 1px solid #475569;
+  color: #cbd5e1;
+}
+
+.clearButton:hover {
+  background: #334155;
+}
+
+.applyButton {
+  background: #00b8ff;
+  border: 1px solid #00b8ff;
+  color: #071827;
+}
+
+.applyButton:hover {
+  background: #00d9ff;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .filtersGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .filtersSection {
+    padding: 18px;
+  }
+
+  .filtersGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .filtersBottom {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .filterActions {
+    width: 100%;
+  }
+
+  .filterActions button {
+    flex: 1;
+  }
+}

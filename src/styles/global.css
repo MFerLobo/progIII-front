@@ -1,0 +1,59 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+
+/* Paleta Computech */
+--color-deep-sky-blue: #00B8FF;
+--color-light-cyan: #D5F4FF;
+--color-space-indigo: #1e273f;;
+--color-white-smoke: #F5F5F5;
+
+/* Colores de interfaz */
+--color-background: var(--color-space-indigo);
+--color-surface: #496783;
+--color-primary: var(--color-deep-sky-blue);
+--color-secondary: var(--color-light-cyan);
+--color-text: var(--color-white-smoke);
+--color-muted: #D5F4FF;
+--color-border: rgba(245, 245, 245, 0.20);
+
+  color: var(--color-text);
+  background: var(--color-background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

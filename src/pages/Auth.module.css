@@ -1,0 +1,164 @@
+
+.container {
+  min-height: calc(100vh - 85px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 55px 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 480px;
+  padding: 35px;
+
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header svg {
+  color: #00d9ff;
+}
+
+.header h1 {
+  color: #f8fafc;
+  font-size: 27px;
+}
+
+.header p {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+
+.formGroup label {
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 13px 14px;
+
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 8px;
+
+  color: #f8fafc;
+  font-size: 14px;
+  outline: none;
+}
+
+.formGroup input:focus {
+  border-color: #00b8ff;
+}
+
+.formGroup input::placeholder {
+  color: #64748b;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.sectionTitle {
+  margin-top: 8px;
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid #334155;
+  color: #f8fafc;
+  font-size: 16px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 14px;
+  margin-top: 5px;
+
+  background: #00b8ff;
+  border: none;
+  border-radius: 8px;
+
+  color: #071827;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #00d9ff;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  padding: 12px;
+  margin-bottom: 20px;
+
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 7px;
+
+  color: #f87171;
+  font-size: 13px;
+}
+
+.footer {
+  margin-top: 25px;
+  text-align: center;
+
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.footer a {
+  color: #00d9ff;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding: 25px 16px;
+    min-height: calc(100vh - 70px);
+  }
+
+  .card {
+    padding: 24px 18px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
