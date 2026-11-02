@@ -1,0 +1,148 @@
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 26px;
+  border-bottom: 1px solid #334155;
+}
+
+.header h2 {
+  color: #f8fafc;
+  font-size: 22px;
+}
+
+.header button {
+  display: flex;
+  color: #94a3b8;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding: 25px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.fullWidth,
+.error,
+.actions {
+  grid-column: 1 / -1;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 7px;
+  color: #f8fafc;
+  outline: none;
+  font: inherit;
+}
+
+.form textarea {
+  resize: vertical;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  border-color: #00b8ff;
+}
+
+.error {
+  margin: 0;
+  padding: 12px;
+  border-radius: 7px;
+  background: rgba(248, 113, 113, 0.1);
+  color: #f87171;
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancelar,
+.guardar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cancelar {
+  background: transparent;
+  border: 1px solid #475569;
+  color: #cbd5e1;
+}
+
+.guardar {
+  background: #00b8ff;
+  border: 1px solid #00b8ff;
+  color: #071827;
+}
+
+.guardar:hover:not(:disabled) {
+  background: #00d9ff;
+}
+
+.actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .form {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .header {
+    padding: 18px;
+  }
+}

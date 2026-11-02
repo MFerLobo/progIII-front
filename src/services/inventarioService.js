@@ -59,6 +59,30 @@ export const inventarioService = {
         })
       },
       token
-    )
+    ),
+
+  crearProducto: (datos, token) =>
+    solicitar(
+      '/productos',
+      {
+        method: 'POST',
+        body: JSON.stringify(datos)
+      },
+      token
+    ),
+
+  desactivarProducto: (id, token) =>
+    solicitar(
+      `/productos/${id}`,
+      { method: 'DELETE' },
+      token
+    ),
+
+  obtenerCategorias: () =>
+    solicitar('/categorias?activo=true'),
+
+  obtenerMarcas: () =>
+    solicitar('/marcas?activo=true')
+
 };
 

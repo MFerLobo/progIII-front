@@ -1,0 +1,110 @@
+
+.container {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px 24px;
+}
+
+.content {
+  width: 100%;
+  max-width: 550px;
+  text-align: center;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 25px;
+
+  background: rgba(0, 184, 255, 0.1);
+  border: 1px solid rgba(0, 184, 255, 0.2);
+  border-radius: 50%;
+
+  color: #00d9ff;
+}
+
+.errorCode {
+  margin: 0;
+  color: #00d9ff;
+
+  font-size: clamp(80px, 15vw, 130px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -5px;
+}
+
+.content h2 {
+  margin: 20px 0 15px;
+
+  color: #f8fafc;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+}
+
+.content p {
+  max-width: 430px;
+  margin: 0 auto;
+
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  margin-top: 35px;
+}
+
+.primaryButton{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 22px;
+
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: background 0.2s, transform 0.2s;
+}
+
+.primaryButton {
+  background: #00b8ff;
+  border: 1px solid #00b8ff;
+  color: #071827;
+}
+
+.primaryButton:hover {
+  background: #00d9ff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 500px) {
+  .container {
+    min-height: calc(100vh - 140px);
+    padding: 40px 16px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+}

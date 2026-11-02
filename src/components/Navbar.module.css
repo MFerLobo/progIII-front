@@ -187,14 +187,6 @@
   }
 }
 
-
-/* Botones deshabilitados temporalmente */
-.iconButton:disabled,
-.cartButton:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
 /* Menú responsive */
 @media (max-width: 850px) {
   .navLinksOpen {
@@ -212,14 +204,37 @@
   }
 }
 
-@media (max-width: 520px) {
-  .navLinksOpen {
-    top: 70px;
-  }
-}
 
-@media (max-width: 650px) {
-  .userName {
-    display: none;
+@media (max-width: 520px) {
+  .navbar {
+    min-height: 70px;
+    padding: 12px 18px;
+    gap: 12px;
+
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .actions {
+    gap: 16px;
+    margin-left: auto;
+  }
+
+  /* Buscador en segunda fila */
+  .searchContainer {
+    display: flex;
+    order: 3;
+
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: none;
+  }
+
+  /* Menú debajo del Navbar completo */
+  .navLinksOpen {
+    top: 100%;
   }
 }

@@ -1,54 +1,75 @@
+
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
-import { useAuth } from '../context/AuthContext';
-import UserMenu from './UserMenu';
 
 import {
   Search,
   ShoppingCart,
   User,
-  Menu
+  Menu,
+  X
 } from 'lucide-react';
 
+import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
+
+import UserMenu from './UserMenu';
 import styles from './Navbar.module.css';
 
 function Navbar() {
   const navigate = useNavigate();
+
   const { cantidadTotal } = useCart();
   const { autenticado } = useAuth();
+
   const [busqueda, setBusqueda] = useState('');
   const [menuAbierto, setMenuAbierto] = useState(false);
+
+  const cerrarMenu = () => {
+    setMenuAbierto(false);
+  };
 
   const handleBuscar = (e) => {
     e.preventDefault();
 
     const termino = busqueda.trim();
 
-    if (termino) {
-      navigate(`/productos?q=${encodeURIComponent(termino)}`);
-      setMenuAbierto(false);
-    }
+    if (!termino) return;
+
+    navigate(
+      `/productos?q=${encodeURIComponent(termino)}`
+    );
+
+    cerrarMenu();
   };
 
   return (
     <header className={styles.navbar}>
 
-      {/* Logo */}
-      <Link to="/" className={styles.logo}>
-        <span className={styles.logoAccent}>COMPU</span>
+      {/* LOGO */}
+      <Link
+        to="/"
+        className={styles.logo}
+        onClick={cerrarMenu}
+      >
+        <span className={styles.logoAccent}>
+          COMPU
+        </span>
         TECH
       </Link>
 
-      {/* Navegación */}
+      {/* NAVEGACIÓN */}
       <nav
-        className={`${styles.navLinks} ${menuAbierto ? styles.navLinksOpen : ''
-          }`}
+        id="navbar-navigation"
+        aria-label="Navegación principal"
+        className={`${styles.navLinks} ${
+          menuAbierto ? styles.navLinksOpen : ''
+        }`}
       >
         <NavLink
           to="/"
           end
-          onClick={() => setMenuAbierto(false)}
+          onClick={cerrarMenu}
           className={({ isActive }) =>
             isActive ? styles.active : ''
           }
@@ -58,7 +79,7 @@ function Navbar() {
 
         <NavLink
           to="/productos"
-          onClick={() => setMenuAbierto(false)}
+          onClick={cerrarMenu}
           className={({ isActive }) =>
             isActive ? styles.active : ''
           }
@@ -67,13 +88,13 @@ function Navbar() {
         </NavLink>
       </nav>
 
-      {/* Buscador */}
+      {/* BUSCADOR */}
       <form
         className={styles.searchContainer}
         onSubmit={handleBuscar}
         role="search"
       >
-        <Search size={19} />
+        <Search size={19} aria-hidden="true" />
 
         <input
           type="search"
@@ -84,11 +105,8 @@ function Navbar() {
         />
       </form>
 
-      {/* Acciones */}
+      {/* ACCIONES */}
       <div className={styles.actions}>
-
-        {/* Perfil: se habilitará con autenticación */}
-
 
         {autenticado ? (
           <UserMenu />
@@ -103,13 +121,11 @@ function Navbar() {
           </Link>
         )}
 
-
-
-        {/* Carrito */}
         <Link
           to="/carrito"
           className={styles.cartButton}
           aria-label={`Carrito con ${cantidadTotal} productos`}
+          onClick={cerrarMenu}
         >
           <ShoppingCart size={21} />
 
@@ -120,16 +136,24 @@ function Navbar() {
           )}
         </Link>
 
-
-        {/* Menú responsive */}
+        {/* BOTÓN RESPONSIVE */}
         <button
           type="button"
           className={styles.menuButton}
-          onClick={() => setMenuAbierto(!menuAbierto)}
-          aria-label="Abrir menú"
+          onClick={() =>
+            setMenuAbierto((actual) => !actual)
+          }
+          aria-label={
+            menuAbierto ? 'Cerrar menú' : 'Abrir menú'
+          }
           aria-expanded={menuAbierto}
+          aria-controls="navbar-navigation"
         >
-          <Menu size={24} />
+          {menuAbierto ? (
+            <X size={24} />
+          ) : (
+            <Menu size={24} />
+          )}
         </button>
 
       </div>
