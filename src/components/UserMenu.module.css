@@ -1,0 +1,191 @@
+
+/* CONTENEDOR */
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* BOTÓN DEL USUARIO */
+
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 9px 12px;
+
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  color: #f8fafc;
+  cursor: pointer;
+
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.userButton:hover,
+.userButton[aria-expanded="true"] {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.userButton > svg:first-child {
+  color: #00d9ff;
+}
+
+.userName {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  max-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chevron,
+.chevronOpen {
+  color: #94a3b8;
+  transition: transform 0.2s;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* DESPLEGABLE */
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+
+  width: 260px;
+  max-width: calc(100vw - 32px);
+  padding: 8px;
+
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  z-index: 1100;
+}
+
+/* INFORMACIÓN DEL USUARIO */
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 12px;
+  min-width: 0;
+}
+
+.userInfo strong {
+  color: #f8fafc;
+  font-size: 14px;
+}
+
+.userInfo span {
+  color: #94a3b8;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.role {
+  padding: 4px 8px;
+  margin-top: 4px;
+
+  background: rgba(0, 184, 255, 0.1);
+  border-radius: 5px;
+
+  color: #00d9ff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+/* SEPARADORES */
+
+.divider {
+  height: 1px;
+  background: #334155;
+  margin: 6px 0;
+}
+
+/* ENLACES DEL MENÚ */
+
+.menuItem,
+.logoutButton {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+  border: none;
+  border-radius: 7px;
+
+  background: transparent;
+  color: #cbd5e1;
+
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: background 0.2s, color 0.2s;
+}
+
+.menuItem:hover {
+  background: #334155;
+  color: #00d9ff;
+}
+
+.menuItem svg,
+.logoutButton svg {
+  flex-shrink: 0;
+}
+
+.logoutButton {
+  color: #f87171;
+}
+
+.logoutButton:hover {
+  background: rgba(248, 113, 113, 0.1);
+  color: #fca5a5;
+}
+
+/* ACCESIBILIDAD */
+
+.userButton:focus-visible,
+.menuItem:focus-visible,
+.logoutButton:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 2px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+  .userButton {
+    padding: 8px;
+    gap: 5px;
+  }
+
+  .userName,
+  .chevron,
+  .chevronOpen {
+    display: none;
+  }
+
+  .dropdown {
+    width: 250px;
+  }
+}

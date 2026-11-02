@@ -1,6 +1,11 @@
 
 import { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import {
+  Link,
+  Navigate,
+  useNavigate,
+  useLocation
+} from 'react-router-dom';
 import { LogIn } from 'lucide-react';
 
 import { useAuth } from '../context/AuthContext';
@@ -8,7 +13,12 @@ import styles from './Auth.module.css';
 
 function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
 
+  const destino = location.state?.from;
+  const rutaDestino = destino
+    ? `${destino.pathname}${destino.search}${destino.hash}`
+    : '/';
   const { login, autenticado, loading } = useAuth();
 
   const [form, setForm] = useState({
@@ -36,7 +46,7 @@ function Login() {
 
     try {
       await login(form);
-      navigate('/', { replace: true });
+      navigate(rutaDestino, { replace: true });
     } catch (err) {
       setError(err.message);
     } finally {

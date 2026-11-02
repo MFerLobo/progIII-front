@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+import UserMenu from './UserMenu';
 
 import {
   Search,
   ShoppingCart,
   User,
-  Menu,
-  LogOut
+  Menu
 } from 'lucide-react';
 
 import styles from './Navbar.module.css';
@@ -16,7 +16,7 @@ import styles from './Navbar.module.css';
 function Navbar() {
   const navigate = useNavigate();
   const { cantidadTotal } = useCart();
-  const { usuario, autenticado, logout } = useAuth();
+  const { autenticado } = useAuth();
   const [busqueda, setBusqueda] = useState('');
   const [menuAbierto, setMenuAbierto] = useState(false);
 
@@ -89,22 +89,9 @@ function Navbar() {
 
         {/* Perfil: se habilitará con autenticación */}
 
-        {autenticado ? (
-          <div className={styles.userActions}>
-            <span className={styles.userName}>
-              {usuario?.nombre}
-            </span>
 
-            <button
-              type="button"
-              className={styles.iconButton}
-              onClick={logout}
-              title="Cerrar sesión"
-              aria-label="Cerrar sesión"
-            >
-              <LogOut size={21} />
-            </button>
-          </div>
+        {autenticado ? (
+          <UserMenu />
         ) : (
           <Link
             to="/login"
@@ -115,6 +102,7 @@ function Navbar() {
             <User size={21} />
           </Link>
         )}
+
 
 
         {/* Carrito */}

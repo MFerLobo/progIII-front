@@ -185,6 +185,7 @@
   .actions {
     gap: 16px;
   }
+}
 
 
 /* Botones deshabilitados temporalmente */
@@ -217,23 +218,8 @@
   }
 }
 
-.userActions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.userName {
-  color: #cbd5e1;
-  font-size: 12px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
 @media (max-width: 650px) {
   .userName {
     display: none;
   }
-}
-
 }

@@ -1,5 +1,4 @@
-
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import {
   ShoppingCart,
@@ -11,11 +10,14 @@ import {
   ShoppingBag
 } from 'lucide-react';
 
+import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 
 import styles from './Carrito.module.css';
 
 function Carrito() {
+  const navigate = useNavigate();
+  const { autenticado, usuario } = useAuth();
   const {
     items,
     cantidadTotal,
@@ -237,12 +239,25 @@ function Carrito() {
             verificarán al confirmar la compra.
           </p>
 
-          {/* Se habilitará al implementar checkout */}
+
           <button
             type="button"
             className={styles.checkoutButton}
-            disabled
-            title="Próximamente: finalizar compra"
+            onClick={() => {
+              if (!autenticado) {
+                navigate('/login', {
+                  state: { from: { pathname: '/checkout' } }
+                });
+                return;
+              }
+
+              if (usuario?.rol !== 'cliente') {
+                navigate('/no-autorizado');
+                return;
+              }
+
+              navigate('/checkout');
+            }}
           >
             <ShoppingBag size={19} />
             Finalizar compra

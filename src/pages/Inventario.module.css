@@ -1,0 +1,290 @@
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ENCABEZADO */
+
+.header {
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  color: #00d9ff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.header h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin: 12px 0;
+  color: #f8fafc;
+  font-size: 30px;
+}
+
+.header h1 svg {
+  color: #00d9ff;
+}
+
+.header p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* BUSCADOR */
+
+.searchForm {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+
+  padding: 12px 15px;
+
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #94a3b8;
+}
+
+.searchBox:focus-within {
+  border-color: #00b8ff;
+}
+
+.searchBox input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f8fafc;
+}
+
+.searchForm > button {
+  padding: 12px 24px;
+  background: #00b8ff;
+  color: #071827;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+/* TABLA */
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+}
+
+.table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 18px;
+  background: #111827;
+
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.table td {
+  padding: 18px;
+  border-top: 1px solid #334155;
+
+  color: #cbd5e1;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background: #253247;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 190px;
+}
+
+.productInfo strong {
+  color: #f8fafc;
+  line-height: 1.4;
+}
+
+.productInfo small {
+  color: #64748b;
+  font-size: 11px;
+}
+
+/* STOCK */
+
+.stock {
+  color: #4ade80;
+  font-weight: 700;
+}
+
+.noStock {
+  color: #f87171;
+  font-weight: 700;
+}
+
+/* EDICIÓN */
+
+.editInput {
+  width: 115px;
+  padding: 9px;
+
+  background: #111827;
+  border: 1px solid #00b8ff;
+  border-radius: 6px;
+
+  color: #f8fafc;
+  outline: none;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editButton,
+.saveButton,
+.cancelButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 9px 12px;
+  border-radius: 7px;
+
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.editButton {
+  background: transparent;
+  border: 1px solid #00b8ff;
+  color: #00d9ff;
+}
+
+.editButton:hover {
+  background: rgba(0, 184, 255, 0.1);
+}
+
+.saveButton {
+  background: #00b8ff;
+  border: 1px solid #00b8ff;
+  color: #071827;
+}
+
+.cancelButton {
+  background: transparent;
+  border: 1px solid #475569;
+  color: #cbd5e1;
+}
+
+.actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* MENSAJES */
+
+.error,
+.success {
+  padding: 14px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.error {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  color: #f87171;
+}
+
+.success {
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  color: #4ade80;
+}
+
+/* PAGINACIÓN */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.pagination button {
+  padding: 11px 20px;
+
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 7px;
+
+  color: #f8fafc;
+  font-size: 13px;
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: #00b8ff;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+  .container {
+    padding: 25px 16px 60px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .searchForm {
+    flex-direction: column;
+  }
+
+  .pagination {
+    gap: 10px;
+  }
+}
